@@ -47,7 +47,7 @@ class VIPSlots extends PluginBase implements Listener{
 	*================*
 	*****************/
 	
-	public function onCommand(CommandSender $p, Command $command, $label, array $args){
+	public function onCommand(CommandSender $p, Command $command, string $label, array $args) : bool{
 	
 		if($command->getName() == "vips"){
 		
@@ -131,9 +131,8 @@ class VIPSlots extends PluginBase implements Listener{
 					break;
 					
 			}
-			
-			return true;
 		}
+		return true;
 	}
 	
 	/*****************
