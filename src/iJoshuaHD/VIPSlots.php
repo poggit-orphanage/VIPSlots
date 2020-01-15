@@ -35,7 +35,7 @@ class VIPSlots extends PluginBase implements Listener{
 
 	public function onPlayerKick(PlayerKickEvent $event){
 		if($this->vips->exists(strtolower($event->getPlayer()->getName())) and $event->getReason() === "disconnectionScreen.serverFull"){
-			$event->setCancelled(true);
+			$event->setCancelled();
 		}
 
 	}
@@ -159,7 +159,10 @@ class VIPSlots extends PluginBase implements Listener{
 			$p = strtolower($player);
 		}
 
-		if($this->vips->exists($p)) return false;
+		if($this->vips->exists($p)){
+			$player->sendMessage("Exists Player");
+			return false;
+		}
 
 		$this->vips->set($p, true);
 		$this->vips->save();
